@@ -1,0 +1,11 @@
+<%= simple_form_for @todo do |t|%>
+<%= t.label :待做項目%>
+<%= t.input :item, :input_html => { :class => "form-control"}%>
+
+
+<%= t.submit"確定", :disable_with => 'Submitting...', :class => "btn btn-primary" %>
+<%end%>
+
+
+
+

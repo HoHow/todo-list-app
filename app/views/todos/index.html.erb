@@ -1,0 +1,38 @@
+<div class="col-md-12">
+  <div class="todo_nav">
+    <%= link_to("New tolist",new_todo_path, :class => "btn btn-primary pull-right")%>
+          </div>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <td>勾選</td>
+        <td>清單</td>
+        <td>完成</td>
+        <td>編輯</td>
+        <td>刪除</td>
+
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= form_tag destroy_multiple_todos_path, method: :delete do%>
+      <%  @todos.each do |todo|%>
+    <tr>
+      <td><%= check_box_tag 'todos[]',todo.id %></td>
+
+      <td> <%=todo.item%></td>
+      <td> </td>
+      <td> <%= link_to("Edit",edit_todo_path(todo), :class => "btn btn-sm btn-default")%></td>
+      <td><%= link_to "Delete", todo_path(todo), :method => :delete %></td>
+    </tr>
+
+      <% end %>
+          <%= submit_tag "Delete selected", :class=> "btn btn-danger pull-left"%>
+      <% end %>
+
+
+    </tbody>
+  </table>
+
+</div>
